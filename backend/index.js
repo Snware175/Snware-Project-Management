@@ -12,8 +12,11 @@ const clientRepRoutes = require("./Routes/clientRoutes");
 const saleProjectsRoutes = require("./Routes/saleProjects");
 
 const allowedOrigins = {
-  development: "http://localhost:5173", // Vite default dev server port
-  production: "https://snware-project-management-frontend.vercel.app",
+  development: "http://localhost:5173",
+  production: [
+    "https://snware-project-management-frontend.vercel.app",
+    "https://snware-project-management-frontend-git-main-snware175s-projects.vercel.app",
+  ],
 };
 
 app.use(
