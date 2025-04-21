@@ -79,9 +79,9 @@ const login = async (req, res) => {
     // ✅ Set token in cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // true in production
-      sameSite: "strict",
-      maxAge: 8 * 60 * 60 * 1000, //  8 hours
+      secure: true, // required for production
+      sameSite: "none", // ✅ allow frontend-backend cross-site cookie
+      maxAge: 8 * 60 * 60 * 1000, //8 hours
     });
 
     res.status(200).json({
