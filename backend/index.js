@@ -11,12 +11,18 @@ const salesRepRoutes = require("./Routes/salesRepRoutes");
 const clientRepRoutes = require("./Routes/clientRoutes");
 const saleProjectsRoutes = require("./Routes/saleProjects");
 
+const allowedOrigins = {
+  development: "http://localhost:5173", // Vite default dev server port
+  production: "https://snware-project-management-frontend.vercel.app",
+};
+
 app.use(
   cors({
-    origin: "https://snware-project-management-frontend.vercel.app", // your frontend origin
-    credentials: true, // 👈 Important!
+    origin: allowedOrigins[process.env.NODE_ENV], // dynamic origin
+    credentials: true, // 👈 Important for cookies
   })
 );
+
 //app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
