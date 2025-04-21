@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+::selection {
+  background-color: #b3015c;
+  color: #fff;
+}
+
+label {
+  font-size: 18px;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow: hidden;
+  font-family: "" Open Sans ", sans-serif;";
+  background: #ebe9e9;
+}
+
+.header {
+  display: flex;
+  border-bottom: 1.5px solid #000;
+}
+
+.header > img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 190px;
+  aspect-ratio: 2/3;
+}
+
+.header > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b3015c;
+  flex: 1;
+}
+
+.main {
+  background-color: #fff;
+  width: 100%;
+  padding: 32px 48px;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 14px rgb(0, 0, 0, 0.4);
+  margin: 7% 0;
+}
+
+.main > h1 {
+  margin-bottom: 20px;
+}
+
+.info {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.main > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.main div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.main input {
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.main input::placeholder {
+  font-size: 12px;
+  font-style: italic;
+}
+
+button {
+  background: #b3015c;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+button:hover {
+  background-position: left !important;
+  color: #fff !important;
+}
+
+header {
+  background: white;
+  height: 80px;
+}
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.toast-container {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 9999 !important; /* Ensure it appears above everything */
+}
+
+.projectTable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 2px;
+}
+
+.MuiTableCell-root {
+  white-space: nowrap; /* Prevents unwanted wrapping */
+  padding: 6px !important;
+  border: 0.3px solid #ebe9e9;
+}
+.MuiTableHead-root .MuiTableRow-root .MuiTableCell-root {
+  background-color: #b3015c !important;
+  color: white !important;
+}
+
+.projectbuttom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 5px;
+  margin-right: 35px;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: white;
+  display: inline-block;
+  text-transform: capitalize;
+  text-wrap: auto;
+}
+
+.status.invoice {
+  background-color: #1976d2; /* Blue */
+}
+
+.status.won {
+  background-color: #2e7d32; /* Green */
+}
+
+.status.canceled {
+  background-color: #d32f2f; /* Red */
+}
+
+.status.bidding {
+  background-color: #f9a825; /* Amber */
+  color: black;
+}
+
+.status.lost {
+  background-color: #616161; /* Grey */
+}
+
+.status.quotation-pending {
+  background-color: #6a1b9a; /* Purple */
+}
+
+.anchorProject {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  text-wrap: wrap;
+  color: #07558c;
+}
+
+.footer {
+  background: #b3015c;
+  position: relative;
+  bottom: 0;
+  padding: 15px;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  height: 50px;
+}
+
+.body-wrapper {
+  width: 100%;
+  height: calc(100vh - 65px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.Admin-body {
+  width: 100%;
+  height: calc(100vh - 65px);
+
+  overflow: auto;
+}
