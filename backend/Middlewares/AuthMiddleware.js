@@ -27,6 +27,7 @@ const allowRoles = (...roles) => {
     //console.log("Allowed Roles:", roles);
 
     if (!roles.includes(userRole)) {
+      console.log(`🚫 Access denied for role: ${userRole}`);
       return res
         .status(403)
         .json({ message: "Access denied, insufficient role." });

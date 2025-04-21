@@ -100,6 +100,7 @@ const login = async (req, res) => {
 
 const me = (req, res) => {
   const token = req.cookies.token;
+  console.log("🔍 Token in /auth/me:", token);
 
   if (!token) {
     return res.status(401).json({ success: false, message: "Unauthorized" });
@@ -109,6 +110,7 @@ const me = (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     return res.status(200).json({ success: true, user: decoded });
   } catch (err) {
+     console.log("❌ JWT Verification Failed:", err.message);
     return res.status(403).json({ success: false, message: "Invalid token" });
   }
 };
@@ -117,7 +119,7 @@ const logout = (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    sameSite: "none",
   });
   res.status(200).json({ success: true, message: "Logged out successfully" });
 };
