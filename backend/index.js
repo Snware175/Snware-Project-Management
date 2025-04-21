@@ -13,7 +13,7 @@ const saleProjectsRoutes = require("./Routes/saleProjects");
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // your frontend origin
+    origin: "https://snware-project-management-frontend.vercel.app/", // your frontend origin
     credentials: true, // 👈 Important!
   })
 );
