@@ -102,14 +102,6 @@ const SalesProjectTable = ({ handleOpen, mockClients, mockSalesReps }) => {
       client_name: selectedClient,
       services: selectedServices,
     });
-
-    console.log("Filters being applied:", {
-      fromDate,
-      toDate,
-      client: selectedClient,
-      status: selectedStatus,
-      services: selectedServices,
-    });
   };
 
   //Clear Filter

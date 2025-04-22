@@ -32,8 +32,8 @@ const GlobalLayout = ({ children }) => {
       style={{
         background: "#eef0f4",
         padding: "0",
-        width: "1421px",
-        height: "950px",
+        width: "112vw",
+        height: "100vh",
       }}
     >
       {children}
