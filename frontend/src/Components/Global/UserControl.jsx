@@ -347,7 +347,6 @@ const UserControl = () => {
                           }
                           size="small"
                         >
-                          <MenuItem value="Super Admin">Super Admin</MenuItem>
                           <MenuItem value="Admin">Admin</MenuItem>
                           <MenuItem value="Manager">Manager</MenuItem>
                           <MenuItem value="Executive">Executive</MenuItem>

@@ -99,7 +99,7 @@ const SalesProjectTable = ({ handleOpen, mockClients, mockSalesReps }) => {
     fetchProjects({
       fromDate,
       toDate,
-      client_name: selectedClient,
+      client: selectedClient,
       services: selectedServices,
     });
   };
