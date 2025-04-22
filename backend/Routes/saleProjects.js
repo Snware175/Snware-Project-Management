@@ -5,7 +5,7 @@ const SaleProject = require("../Models/SaleProjectSchema"); // Import your Mongo
 // GET all sale projects
 router.get("/", async (req, res) => {
   try {
-    const { from, to, client, services } = req.query;
+    const { from, to, client, status } = req.query;
     const filter = {};
     console.log("Query received:", req.query);
 
@@ -20,8 +20,8 @@ router.get("/", async (req, res) => {
       filter.client_name = client;
     }
 
-    if (services && services !== "all") {
-      filter.current_status = services;
+    if (status && status !== "all") {
+      filter.current_status = status;
     }
 
     console.log("Final filter being used:", filter);

@@ -40,7 +40,7 @@ const SalesProjectTable = ({ handleOpen, mockClients, mockSalesReps }) => {
   const [fromDate, setFromDate] = useState(null);
   const [toDate, setToDate] = useState(null);
   const [selectedClient, setSelectedClient] = useState("");
-  const [selectedServices, setSelectedServices] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("");
   const jobStatuses = [
     "Invoice",
     "Won",
@@ -73,8 +73,8 @@ const SalesProjectTable = ({ handleOpen, mockClients, mockSalesReps }) => {
         queryParams.append("client", filters.client);
       }
 
-      if (filters.services) {
-        queryParams.append("services", filters.services);
+      if (filters.status) {
+        queryParams.append("status", filters.status);
       }
 
       const response = await axios.get(
@@ -92,7 +92,7 @@ const SalesProjectTable = ({ handleOpen, mockClients, mockSalesReps }) => {
 
   const handleApply = () => {
     const isApplied =
-      (fromDate && toDate) || selectedClient !== "" || selectedServices !== "";
+      (fromDate && toDate) || selectedClient !== "" || selectedStatus !== "";
 
     setFiltersApplied(isApplied);
 
@@ -100,8 +100,9 @@ const SalesProjectTable = ({ handleOpen, mockClients, mockSalesReps }) => {
       fromDate,
       toDate,
       client: selectedClient,
-      services: selectedServices,
+      status: selectedStatus,
     });
+    //console.log(selectedStatus);
   };
 
   //Clear Filter
@@ -110,7 +111,7 @@ const SalesProjectTable = ({ handleOpen, mockClients, mockSalesReps }) => {
     setFromDate("");
     setToDate("");
     setSelectedClient("");
-    setSelectedServices("");
+    setSelectedStatus("");
     setFiltersApplied(false);
 
     fetchProjects();
@@ -362,15 +363,15 @@ const SalesProjectTable = ({ handleOpen, mockClients, mockSalesReps }) => {
             <TextField
               select
               size="small"
-              label="Services"
-              value={selectedServices || ""}
-              onChange={(e) => setSelectedServices(e.target.value)}
+              label="Status"
+              value={selectedStatus || ""}
+              onChange={(e) => setSelectedStatus(e.target.value)}
               sx={{ minWidth: 150 }}
             >
               <MenuItem value="">All</MenuItem>
-              {jobStatuses.map((services, i) => (
-                <MenuItem key={i} value={services}>
-                  {services}
+              {jobStatuses.map((statuses, i) => (
+                <MenuItem key={i} value={statuses}>
+                  {statuses}
                 </MenuItem>
               ))}
             </TextField>
