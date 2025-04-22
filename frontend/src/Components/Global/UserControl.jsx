@@ -35,8 +35,10 @@ import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
 import { BiCollapse } from "react-icons/bi";
 import { LuExpand } from "react-icons/lu";
 import Modal from "@mui/material/Modal";
+import { useUser } from "../../Contexts/UserContext";
 
 const UserControl = () => {
+  const { user } = useUser();
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(0);
@@ -360,6 +362,10 @@ const UserControl = () => {
                       <Switch
                         size="small"
                         checked={row.is_active === 1}
+                        disabled={
+                          row.role === "Super Admin" &&
+                          user.role !== "Super Admin"
+                        }
                         onChange={() =>
                           handleToggleStatus(row.id, row.is_active)
                         }
@@ -406,6 +412,12 @@ const UserControl = () => {
                           variant="text"
                           size="small"
                           sx={{ ml: 1 }}
+                          disabled={
+                            (row.role === "Super Admin" &&
+                              user.role !== "Super Admin") ||
+                            user.role === "Manager" ||
+                            user.role === "Executive"
+                          }
                         >
                           Edit
                         </Button>
@@ -496,8 +508,9 @@ const UserControl = () => {
                 onChange={handleChange}
                 label="Role"
               >
-                <MenuItem value="Super Admin">Super Admin</MenuItem>
-                <MenuItem value="Admin">Admin</MenuItem>
+                <MenuItem value="Admin" disabled={user.role === "Manager"}>
+                  Admin
+                </MenuItem>
                 <MenuItem value="Manager">Manager</MenuItem>
                 <MenuItem value="Executive">Executive</MenuItem>
               </Select>
